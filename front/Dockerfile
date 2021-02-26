@@ -1,4 +1,4 @@
-FROM node
+FROM node as front
 
 # installe un simple serveur http pour servir un contenu statique
 RUN npm install -g http-server
@@ -10,7 +10,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # installe les dépendances du projet
-RUN npm install
+RUN npm install@0.12.x
 
 # copie les fichiers et dossiers du projet dans le dossier de travail (par exemple : le dossier 'app')
 COPY . .

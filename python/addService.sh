@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "[Unit]
 Description=Allumage/extinction ecran
 After=network-online.target

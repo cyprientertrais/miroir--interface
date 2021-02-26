@@ -1,8 +1,8 @@
-FROM andresvidal/rpi3-mongodb3
+FROM andresvidal/rpi3-mongodb3 as a
 
 RUN mkdir -p /data/db /var/dump/db
 COPY basic-dataset.zip .
-RUN apt-get update && apt-get install  unzip && unzip basic-dataset.zip -d /var/dump/
+RUN apt-get update -y --no-install-recommends && apt-get install -y --no-install-recommends unzip=6.0-16+deb8u3 && unzip basic-dataset.zip -d /var/dump/
 EXPOSE 27017
 CMD ["mongod"]
 
